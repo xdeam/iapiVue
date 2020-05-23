@@ -1,18 +1,80 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-container>
+      <el-header>
+        <hmenu :activeIndex="activeIndex" @handleSelect="handleSelect" />
+      </el-header>
+      <el-main>
+        <centercard />
+      </el-main>
+      <el-footer>
+        ©2020
+        <a href="http://xdeam.github.io/" target="_blank">Xwinter</a> All Rights Reserved
+      </el-footer>
+    </el-container>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import centercard from "@/components/CenterCard";
+import hmenu from "@/components/HeadMenu";
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name: "Home",
+  data() {
+    return {
+      activeIndex: "1"
+    };
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+    }
+  },
+  components: { centercard, hmenu },
+  mounted: function() {
+    console.info("mounted");
+    this.axios.get("http://iapi.avosapps.us/upload/").then(data => {
+      console.info(data);
+    });
   }
-}
+};
 </script>
+<style scoped>
+.el-header,
+.el-footer {
+  /* background-color: #b3c0d1; */
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
+
+.el-aside {
+  background-color: #d3dce6;
+  color: #333;
+  text-align: center;
+  line-height: 200px;
+}
+
+.el-main {
+  background-color: #e9eef3;
+  color: #333;
+  text-align: center;
+  flex: 1;
+  min-height: calc(99vh - 140px);
+}
+
+body > .el-container {
+  margin-bottom: 40px;
+}
+
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
+}
+
+.el-container:nth-child(7) .el-aside {
+  line-height: 320px;
+}
+</style>
