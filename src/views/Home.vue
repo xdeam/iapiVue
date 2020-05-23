@@ -39,7 +39,7 @@ export default {
   components: { centercard, hmenu },
   mounted: function() {
     let that = this;
-
+    //改变路径和路由
     bus.$on("pathchange", function(path) {
       for (let prop in that.tab) {
         // console.log(prop + " = " + that.tab[prop]);
