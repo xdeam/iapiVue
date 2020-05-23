@@ -30,6 +30,7 @@ export default {
     };
   },
   methods: {
+    //处理下拉菜单
     handleSelect(key, keyPath) {
       //  console.log(key, keyPath);
       this.activeIndex = key;
