@@ -1,13 +1,14 @@
+import axios from 'axios'
 import Vue from 'vue'
+import VueAxios from 'vue-axios'
 import App from './App.vue'
+import './plugins/element.js'
 import router from './router'
 import store from './store'
-import './plugins/element.js'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
 
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios);
+export const bus = new Vue();
 
 new Vue({
   router,

@@ -5,7 +5,7 @@
         <hmenu :activeIndex="activeIndex" @handleSelect="handleSelect" />
       </el-header>
       <el-main>
-        <centercard />
+        <router-view />
       </el-main>
       <el-footer>
         ©2020
@@ -19,24 +19,37 @@
 // @ is an alias to /src
 import centercard from "@/components/CenterCard";
 import hmenu from "@/components/HeadMenu";
+import { bus } from "../main.js";
 
 export default {
   name: "Home",
   data() {
     return {
-      activeIndex: "1"
+      activeIndex: "1",
+      tab: { "1": "home", "2-1": "ocr", "2-2": "tts" }
     };
   },
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+      //  console.log(key, keyPath);
+      this.activeIndex = key;
+      this.$router.push(this.tab[key]);
     }
   },
   components: { centercard, hmenu },
   mounted: function() {
-    console.info("mounted");
-    this.axios.get("http://iapi.avosapps.us/upload/").then(data => {
-      console.info(data);
+    let that = this;
+
+    bus.$on("pathchange", function(path) {
+      for (let prop in that.tab) {
+        // console.log(prop + " = " + that.tab[prop]);
+        if (path == that.tab[prop]) {
+          that.activeIndex = prop;
+          that.$router.push(path);
+          break;
+        }
+        //
+      }
     });
   }
 };
