@@ -52,6 +52,7 @@ div {
 }
 .gray {
   cursor: not-allowed;
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
+  opacity: 0.5;
 }
 </style>
