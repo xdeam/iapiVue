@@ -11,7 +11,7 @@
       </el-col>
       <el-col :span="6" :offset="2">
         <card-center
-          title="语音转文字"
+          title="语音合成"
           :imagePath="require('@/assets/tts.svg')"
           @pathchange="pathchange"
           :path="pathx.tts"
