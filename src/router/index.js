@@ -19,7 +19,7 @@ const routes = [
         meta: {
           title: '首页入口'
         },
-        component: () => import('../components/CenterCard')
+        component: () => import('../views/HomeMenu.vue')
       },
       {
         path: 'ocr',

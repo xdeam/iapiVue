@@ -11,7 +11,7 @@
       <el-menu-item index="2-1">图片OCR</el-menu-item>
       <el-menu-item index="2-2">文字转声音TTS</el-menu-item>
     </el-submenu>
-    <el-menu-item index="3">消息中心</el-menu-item>
+    <el-menu-item index="3" disabled>消息中心</el-menu-item>
     <el-menu-item index="4">
       <a href="http://xdeam.github.io/" target="_blank">博客</a>
     </el-menu-item>
@@ -40,12 +40,7 @@ export default {
       this.$emit("handleSelect", key, keyPath);
     }
   },
-  watch: {
-    activeIndex: function(old, n) {
-      console.info(old, n);
-      //this.$element.active = "n";
-    }
-  },
+  watch: {},
   mounted: function() {
     //console.info(this.$element);
     // this.$refs.topbar;

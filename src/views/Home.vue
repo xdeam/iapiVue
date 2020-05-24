@@ -5,7 +5,9 @@
         <hmenu :activeIndex="activeIndex" @handleSelect="handleSelect" />
       </el-header>
       <el-main>
+        <!-- <transition name="el-fade-in" mode="in-out" appear> -->
         <router-view />
+        <!-- </transition> -->
       </el-main>
       <el-footer>
         ©2020

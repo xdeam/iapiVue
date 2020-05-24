@@ -1,71 +1,42 @@
 <template>
-  <div>
-    <el-row type="flex" class="row-bg" justify="center">
-      <el-col :span="6">
-        <el-card class="box-card" @click.native="doclick('ocr')">
-          <!-- <div slot="header" class="clearfix"> -->
-
-          <el-image :src="require('@/assets/ocr.svg')"></el-image>
-          <el-col class="icon-details">
-            <span>图像识别</span>
-          </el-col>
-          <!-- </div> -->
-        </el-card>
-      </el-col>
-      <el-col :span="6" :offset="2">
-        <el-card class="box-card" @click.native="doclick('tts')">
-          <!-- <div slot="header" class="clearfix"> -->
-
-          <el-image :src="require('../assets/tts.svg')">
-            <div slot="error" class="image-slot">
-              <i class="el-icon-picture-outline"></i>
-              <!-- <i class="el-icon-microphone"></i> -->
-            </div>
-          </el-image>
-          <el-col>
-            <span>语音转文字</span>
-          </el-col>
-          <!-- </div> -->
-        </el-card>
-      </el-col>
-      <!--    <el-col :span="6" :offset="2">
-        <el-card class="box-card" @click.native="doclick">
-       
-          <el-image :src="require('../assets/idcard.svg')">
-            <div slot="error" class="image-slot">
-              <i class="el-icon-picture-outline"></i>
-           
-            </div>
-          </el-image>
-          <el-col>
-            <span>身份证加水印</span>
-          </el-col>
-      
-        </el-card>
-      </el-col>-->
-    </el-row>
-  </div>
+  <el-card :class="{'box-card':!disabled,'gray':disabled}" @click.native="doclick()">
+    <el-image :src="this.imagePath"></el-image>
+    <el-col class="icon-details">
+      <span>{{title}}</span>
+    </el-col>
+  </el-card>
 </template>
 <script>
-import { bus } from "../main.js";
 export default {
-  data() {
-    return {
-      pathx: {
-        ocr: "/ocr",
-        tts: "/tts"
-      }
-    };
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    imagePath: {
+      type: String,
+      required: true
+    },
+    path: {
+      type: String,
+      required: true
+    },
+    disabled: {
+      type: String
+    }
   },
   methods: {
-    doclick(path) {
-      //confirm("a");
-      bus.$emit("pathchange", path);
+    doclick() {
+      if (this.disabled) return;
+      else this.$emit("pathchange", this.path);
     }
   }
 };
 </script>
 <style scoped>
+div {
+  user-select: none;
+}
 .row-bg {
   line-height: 110px;
   max-height: 160px;
@@ -78,5 +49,9 @@ export default {
 }
 .box-card {
   cursor: pointer;
+}
+.gray {
+  cursor: not-allowed;
+  filter: grayscale(100%);
 }
 </style>
