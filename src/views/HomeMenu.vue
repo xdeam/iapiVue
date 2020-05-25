@@ -24,7 +24,6 @@
           :imagePath="require('@/assets/idcard.svg')"
           @pathchange="pathchange"
           :path="pathx.tts"
-          disabled="true"
         />
       </el-col>
     </el-row>

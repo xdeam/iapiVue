@@ -27,7 +27,7 @@ const routes = [
         meta: {
           title: 'OCR识别'
         },
-        component: () => import('../components/OCRCard')
+        component: () => import('../views/OCRCard')
       },
       {
         path: 'tts',
@@ -35,7 +35,9 @@ const routes = [
         meta: {
           title: 'TTS语音合成'
         },
-        component: () => import('../components/TTSCard')
+        component: () => import('../views/TTSCard')
+
+        //component: () => import('../components/VoiceCircul.vue')
       }
     ]
   },
