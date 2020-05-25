@@ -1,7 +1,7 @@
 <template>
   <div>
-    <el-row type="flex" class="row-bg" justify="center">
-      <el-col :span="6">
+    <el-row type="flex" class="row-bg" justify="start" style=" flex-flow: row wrap">
+      <el-col :md="{span:6,offset:1}" :sm="{span:11}" :xs="{span:10}">
         <card-center
           title="图像识别"
           :imagePath="require('@/assets/ocr.svg')"
@@ -9,7 +9,7 @@
           :path="pathx.ocr"
         />
       </el-col>
-      <el-col :span="6" :offset="2">
+      <el-col :md="{span:6,offset:2}" :sm="{span:11,offset:2}" :xs="{span:10,offset:2}">
         <card-center
           title="语音合成"
           :imagePath="require('@/assets/tts.svg')"
@@ -18,7 +18,7 @@
         />
       </el-col>
 
-      <el-col :span="6" :offset="2" v-show="idcard">
+      <el-col :md="{span:6,offset:2}" v-show="idcard" :sm="{span:12}" :xs="{span:10}">
         <card-center
           title="身份证水印"
           :imagePath="require('@/assets/idcard.svg')"

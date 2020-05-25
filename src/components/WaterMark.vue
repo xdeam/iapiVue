@@ -9,9 +9,9 @@
         type="success"
       ></el-alert>
     </el-row>-->
-    <el-row type="flex" :gutter="3" justify="center">
-      <el-col :span="7" style="heigh:100%">
-        <div class="tip">这是一款最安全，最快速的纯前端图片加水印，拒绝上传保证个人信息安全。</div>
+    <el-row type="flex" :gutter="3" justify="center" style=" flex-flow: row wrap">
+      <el-col :md="{span:6}" :sm="{span:24}" :xs="{span:24}">
+        <div class="tip">安全，快速的纯前端图片加水印，拒绝上传保证个人信息安全。</div>
         <el-card style="heigh:100%">
           <el-row type="flex" align="middle">
             <el-col :span="50">
@@ -103,10 +103,10 @@
           </el-row>
         </el-card>
       </el-col>
-      <el-col :span="93">
+      <el-col :md="{span:18}" :sm="{span:24}" :xs="{span:24}">
         <el-card class="main_box" style="marginTop:30">
           <!-- 控制 -->
-          <div class="canvas_box" style="flex:1;minWidth:345">
+          <div class="canvas_box">
             <canvas style="width: 100%" ref="mainCanvas"></canvas>
           </div>
         </el-card>
@@ -202,9 +202,9 @@ export default {
 };
 </script>
 <style scoped>
-/* .canvas_box {
-  margin-left: 30px;
-} */
+.canvas_box {
+  /* margin-left: 30px; */
+}
 @media (max-width: 768px) {
   .canvas_box {
     margin-left: 0;
@@ -220,5 +220,6 @@ export default {
   border-radius: 4px;
   border-left: 5px solid #67c23a;
   margin: 20px 0;
+  /* width: 100%; */
 }
 </style>
