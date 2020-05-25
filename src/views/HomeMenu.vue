@@ -23,7 +23,7 @@
           title="身份证水印"
           :imagePath="require('@/assets/idcard.svg')"
           @pathchange="pathchange"
-          :path="pathx.tts"
+          :path="pathx.idc"
         />
       </el-col>
     </el-row>
@@ -37,7 +37,8 @@ export default {
     return {
       pathx: {
         ocr: "ocr",
-        tts: "tts"
+        tts: "tts",
+        idc: "watermark"
       },
       idcard: true
     };

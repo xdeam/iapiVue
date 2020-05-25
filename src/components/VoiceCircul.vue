@@ -32,7 +32,7 @@ export default {
   margin-top: 0;
   padding: 0;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   height: 12vh;
   /* background: #f1f1f1; */

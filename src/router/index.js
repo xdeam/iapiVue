@@ -38,6 +38,16 @@ const routes = [
         component: () => import('../views/TTSCard')
 
         //component: () => import('../components/VoiceCircul.vue')
+      },
+      {
+        path: 'watermark',
+        name: 'watermark',
+        meta: {
+          title: 'watermark'
+        },
+        component: () => import('../components/WaterMark')
+
+        //component: () => import('../components/VoiceCircul.vue')
       }
     ]
   },

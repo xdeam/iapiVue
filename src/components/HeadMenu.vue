@@ -10,6 +10,7 @@
       <template slot="title">我的工作台</template>
       <el-menu-item index="2-1">图片OCR</el-menu-item>
       <el-menu-item index="2-2">文字转声音TTS</el-menu-item>
+      <el-menu-item index="2-3">身份证水印</el-menu-item>
     </el-submenu>
     <el-menu-item index="3" disabled>消息中心</el-menu-item>
     <el-menu-item index="4">

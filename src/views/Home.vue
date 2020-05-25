@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       activeIndex: "1",
-      tab: { "1": "home", "2-1": "ocr", "2-2": "tts" }
+      tab: { "1": "home", "2-1": "ocr", "2-2": "tts", "2-3": "watermark" }
     };
   },
   methods: {
