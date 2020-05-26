@@ -54,6 +54,9 @@ export default {
         //
       }
     });
+    this.$axios.get(`${process.env.VUE_APP_URL}/upload/`).then(data => {
+      //  console.info(data);
+    });
   }
 };
 </script>

@@ -68,6 +68,11 @@ export default {
   },
   components: {
     "voice-circul": VC
+  },
+  mounted() {
+    this.$api.tts("helloword", 1).then(data => {
+      console.info(data);
+    });
   }
 };
 </script>
