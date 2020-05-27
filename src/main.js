@@ -7,6 +7,8 @@ import router from './router'
 import store from './store'
 import wbapi from './utils/websiteApi'
 
+
+
 Vue.config.productionTip = false
 //Vue.use(VueAxios, axios);
 export const bus = new Vue();

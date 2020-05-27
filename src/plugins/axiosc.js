@@ -1,7 +1,10 @@
 "use strict";
 import axios from "axios";
+import { default as swal } from 'sweetalert2';
 import Vue from 'vue';
 import store from '../store/index';
+
+// let  vuelive=null
 let config = {
     // baseURL在此处省略配置,考虑到项目可能由多人协作完成开发，域名也各不相同，此处通过对api的抽离，域名单独配置在base.js中
 
@@ -50,8 +53,15 @@ const errorHandle = (status, other) => {
             break;
         default:
             break;
-            console.log(other);
+
     }
+
+    new swal(
+        '哎呦……',
+        '出错了！',
+        'error'
+    )
+
 };
 
 // 创建实例
@@ -101,6 +111,8 @@ _axios.interceptors.response.use(
 Plugin.install = function (Vue, options) {
     Vue.axios = _axios;
     window.axios = _axios;
+
+
     Object.defineProperties(Vue.prototype, {
         // axios: {
         //     get() {

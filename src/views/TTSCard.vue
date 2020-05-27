@@ -162,6 +162,8 @@
 <script>
 import { bus } from "../main.js";
 import VC from "../components/VoiceCircul";
+// import { default as swal } from "sweetalert2";
+
 // import mmplayer from "../components/MMplayer";
 export default {
   /*   
@@ -265,7 +267,8 @@ export default {
           this.currentTrack = {
             songname: item.info,
             songinfo: "TTS",
-            voiceindex: index
+            voiceindex: index,
+            voicetype: item.voicetype
             // index:
           };
           // console.info(this.currentTrack.voiceindex);
@@ -279,6 +282,8 @@ export default {
       // console.info(this.loader);
 
       // if(this.recordLoad)
+
+      // new swal("哎呦……", "出错了！", "error");
       if (this.textarea.trim() == "") {
         // alert("内容为空");
 
@@ -365,25 +370,37 @@ export default {
     },
     tts() {
       this.lastFinish = false;
-      this.$api.tts(this.textarea, this.currentTrack.voiceindex).then(data => {
-        // this.currentTrack =
-        this.recordLoad = true;
-        this.lastFinish = true;
-        this.audio.src = `${process.env.VUE_APP_URL}/voice?wav=${data.result.file_name}`;
+      this.$api
+        .tts(this.textarea, this.currentTrack.voiceindex)
+        .then(data => {
+          // this.currentTrack =
+          this.recordLoad = true;
+          this.lastFinish = true;
+          this.audio.src = `${process.env.VUE_APP_URL}/voice?wav=${data.result.file_name}`;
 
-        this.audio.ontimeupdate = () => {
-          this.generateTime();
-        };
-        this.audio.onloadedmetadata = () => {
-          this.generateTime();
-        };
-        this.audio.onended = () => {
-          // this.nextTrack();
-          this.isTimerPlaying = false;
-          // this.recordLoad = true;
-        };
-        this.play();
-      });
+          this.audio.ontimeupdate = () => {
+            this.generateTime();
+          };
+          this.audio.onloadedmetadata = () => {
+            this.generateTime();
+          };
+          this.audio.onended = () => {
+            // this.nextTrack();
+            this.isTimerPlaying = false;
+            // this.recordLoad = true;
+          };
+          this.play();
+        })
+        .catch(e => {
+          this.lastFinish = true;
+          this.hideothers(this.currentTrack.voicetype);
+          //this.recordLoad = false;
+
+          this.$message({
+            message: "网络异常Zzz",
+            type: "error"
+          });
+        });
     }
   },
   mounted() {
