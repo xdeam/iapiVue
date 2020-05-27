@@ -1,30 +1,29 @@
 <template>
-  <div class="divc" @click="load=!load">
-    <div :class="{'unload':true,'loader':load}">
+  <div class="divc" @click="onchoosetype">
+    <div :class="{'unload':true,'loader':loader}">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
-      <el-avatar
-        class="child"
-        src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-      ></el-avatar>
+      <el-avatar class="child" :src="ava"></el-avatar>
     </div>
   </div>
 </template>
 <script>
 export default {
-  props: {
-    loader: Boolean
-  },
   data() {
-    return { load: false };
+    return {
+      load: false
+      // ava: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+    };
   },
   methods: {
-    //   load(){
-    //       return !this.load
-    //   }
-  }
+    onchoosetype() {
+      // this.load = !this.load;
+      this.$emit("onchoosetype", this.voicetype);
+    }
+  },
+  props: ["ava", "voicetype", "loader"]
 };
 </script>
 <style scoped>
@@ -49,6 +48,7 @@ export default {
 .loader {
   background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
   animation: animate 1.2s linear infinite;
+  transition: all 0.3s ease-in-out;
 }
 @keyframes animatechild {
   0% {

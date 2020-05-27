@@ -66,6 +66,11 @@ const routes = [
     path: '/ocr',
     name: 'Ocr',
     component: () => import('../components/HelloWorld')
+  },
+  {
+    path: '/player',
+    name: 'player',
+    component: () => import('../components/MMplayer')
   }
 ]
 

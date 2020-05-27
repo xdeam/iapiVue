@@ -1,0 +1,103 @@
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+  }
+  .player-controls {
+    flex: 1;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+  .player-controls__item {
+    display: inline-flex;
+    font-size: 30px;
+    color :#5ad1cd;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .player-controls__item::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #fff;
+    transform: scale(0.5);
+    opacity: 0;
+    box-shadow: 0px 5px 10px 0px rgba(76, 70, 124, 0.2);
+    transition: all 0.3s ease-in-out;
+    transition: all 0.4s cubic-bezier(0.35, 0.57, 0.13, 0.88);
+  }
+
+  .player-controls__item .icon {
+    position: relative;
+    z-index: 2;
+  }
+  .player-controls__item.-xl {
+    margin-bottom: 0;
+    font-size: 95px;
+    filter: drop-shadow(0 11px 6px rgba(172, 184, 204, 0.45));
+    color:  #84cdfa;
+    width: auto;
+    height: auto;
+    display: inline-flex;
+  }
+ 
+  .player-controls__item.-xl:before {
+    display: none;
+  }
+ 
+
+
+.progress {
+  width: 100%;
+  margin-top: -15px;
+  user-select: none;
+}
+.progress__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.progress__duration {
+  color: #71829e;
+  font-weight: 700;
+  font-size: 20px;
+  opacity: 0.5;
+}
+.progress__time {
+  margin-top: 2px;
+  color: #71829e;
+  font-weight: 700;
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.progress__bar {
+  height: 6px;
+  width: 100%;
+  cursor: pointer;
+  background-color: #d0d8e6;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.progress__current {
+  height: inherit;
+  width: 0%;
+  background-color: #a3b3ce;
+  border-radius: 10px;
+}
